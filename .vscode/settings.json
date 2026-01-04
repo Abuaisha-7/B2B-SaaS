@@ -8,6 +8,7 @@
     "sqlalchemy",
     "svix",
     "taskboard",
-    "uvicorn"
+    "uvicorn",
+    "VITE"
   ]
 }
