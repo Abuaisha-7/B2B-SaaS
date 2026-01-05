@@ -31,7 +31,7 @@ const Layout = () => {
               </Link>
             </SignedOut>
 
-            <SignedOut>
+            <SignedIn>
               <OrganizationSwitcher
                 hidePersonal
                 afterCreateOrganizationUrl={"dashboard"}
@@ -53,7 +53,7 @@ const Layout = () => {
                 </Link>
               )}
               <UserButton />
-            </SignedOut>
+            </SignedIn>
           </div>
         </div>
       </div>
