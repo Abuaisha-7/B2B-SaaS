@@ -3,12 +3,13 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 export async function fetchWithAuth(endpoint, getToken, options = {}) {
     const token = await getToken();
 
-    const response = await fetch(`${API_URL}/${endpoint}`, {
+    const response = await fetch(`${API_URL}${endpoint}`, {
         ...options,
         headers: {
-            ...options.headers,
+           
             'Content-Type': 'application/json',
-            'Authorization':`Bearer ${token}`
+            'Authorization':`Bearer ${token}`,
+             ...options.headers,
         },
 
     })

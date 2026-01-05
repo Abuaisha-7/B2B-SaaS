@@ -2,6 +2,7 @@ import {useState} from "react"
 import {useOrganization} from "@clerk/clerk-react"
 import TaskColumn from "./TaskColumn"
 import {createTask, updateTask, deleteTask} from "../services/api"
+import TaskForm from "./TaskForm"
 
 
 const STATUSES = ["pending", "started", "completed"]
@@ -30,7 +31,7 @@ const KanbanBoard = ({tasks, setTasks, getToken}) => {
         setTasks(prev => prev.filter(t => t.id !== taskId))
 
         try {
-            await deleteTask(taskId, getToken)
+            await deleteTask(getToken, taskId)
         } catch (err) {
             setTasks(prev => [...prev, taskToDelete])
             console.error(err)
@@ -100,7 +101,12 @@ const KanbanBoard = ({tasks, setTasks, getToken}) => {
             ))}
         </div>
 
-        {showForm && null}
+        {showForm && <TaskForm 
+                        task={editingTask} 
+                        onSubmit={handleSubmit} 
+                        onCancel={handleCancel}
+                     />
+        }
     </div>
   )
 }
