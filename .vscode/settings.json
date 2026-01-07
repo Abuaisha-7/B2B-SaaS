@@ -5,6 +5,7 @@
     "dotenv",
     "fastapi",
     "pyjwt",
+    "pyproject",
     "sessionmaker",
     "sqlalchemy",
     "svix",
